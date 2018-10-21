@@ -1,4 +1,121 @@
 {% extends "base.html" %}
+{% set active_page = "about" %}
 {% block content %}
+<div class="container">
+  <h1 class="text-center">Our Mission</h1>
+  <hr />
 
+  <p><b><i>Sup-pup!</i></b> We are a group of four college students that came together during University of Washington's 2018 DubHacks. Two of us are
+  from Washington, one from California, and one from Nebraska. We came up with the idea for Subpup when we noticed how college campuses
+often bring dogs onto campus during exam times to reduce stress for students. We wanted to expand the reach beyond just bringing dogs to campuses, we
+wanted to bring more dogs to more people at more times. Under the same philosophy as "subletting" you apartment, we let you "sublet" a pup! Subpup lets dog owners list their dogs when they don't have time to walk or play with their dog
+and could use the extra help. Then dog lovers that don't own dogs can go through the available dogs in their area and pick one to play with for a certain
+amount of time. Dogs can help reduce anxiety or depression, they are great friends, and they keep us active.</p>
+
+<p>So sign up, pick a puppy or list a puppy, and woof on!</p>
+  <section class="content-section bg-primary text-white text-center" id="services">
+    <div class="content-section-heading">
+      <h3 class="text-secondary mb-0">Creators</h3>
+      <h2 class="mb-5">The minds behind the woof.</h2>
+    </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <img class="icon" src="{{ url_for("static", filename="imgs/adrian.png") }}" alt="Adrian" />
+          </span>
+          <h4>
+            <strong>Adrian Pilkington</strong>
+          </h4>
+          <p class="text-faded mb-0">Googling dog puns.</p>
+          <p class="text-faded mb-0">pilkadrian6@gmail.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <img class="icon" src="{{ url_for("static", filename="imgs/sherwyn.png") }}" alt="Sherwyn" />
+          </span>
+          <h4>
+            <strong>Sherwyn Sen</strong>
+          </h4>
+          <p class="text-faded mb-0">Made this on his DIYed laptop.</p>
+          <p class="text-faded mb-0">sherwyn.sen@gmail.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <img class="icon" src="{{ url_for("static", filename="imgs/ann.png") }}" alt="Ann" />
+          </span>
+          <h4>
+            <strong>Ann Shan</strong>
+          </h4>
+          <p class="text-faded mb-0">Actually a cat person.</p>
+          <p class="text-faded mb-0">annshan@uw.edu</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+          <span class="service-icon rounded-circle mx-auto mb-3">
+            <img class="icon" src="{{ url_for("static", filename="imgs/anh.png") }}" alt="Anh" />
+          </span>
+          <h4>
+            <strong>Anh Thu Nguyen</strong>
+          </h4>
+          <p class="text-faded mb-0">
+            The other Anh.</p>
+          <p class="text-faded mb-0">atnd@uw.edu</p>
+        </div>
+      </div>
+  </section>
+</div>
+
+<style>
+
+.service-icon {
+  background-color: #fff;
+  color: #1D809F;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 2.25rem;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.text-secondary {
+  color: #ecb807 !important;
+}
+
+.content-section {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.content-section-heading h2 {
+  font-size: 3rem;
+}
+
+.content-section-heading h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.icon {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+</style>
 {% endblock %}
