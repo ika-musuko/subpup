@@ -26,8 +26,19 @@ hr {
 
 /* -------- browsing dogs css --------- */
 
-a > card {
+a .card {
   color: black;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
+.card:hover {
+  background-color: rgba(0,0,0,.100);
+  cursor: pointer;
+  text-decoration:none;
 }
 
 .thumbnail {
@@ -62,3 +73,14 @@ a > card {
   float: right;
 }
 /* ------------------------------ */
+
+/* ----- form styling ----------- */
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form button {
+  margin-top: 10px;
+}
