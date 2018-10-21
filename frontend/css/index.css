@@ -62,3 +62,14 @@ a > card {
   float: right;
 }
 /* ------------------------------ */
+
+/* ----- form styling ----------- */
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form button {
+  margin-top: 10px;
+}
