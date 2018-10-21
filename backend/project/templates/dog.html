@@ -16,12 +16,12 @@
         <!-- "Lead" text at top of column. -->
         <div class="lead col-md-8 col-sm-* col-xs-*">
             <ul>
-                <li><strong>Name :</strong> {{ dog.name }}</li>
-                <li><strong>Breed :</strong> {{ dog.breed }}</li>
-                <li><strong>Availability :</strong> {{ availability_to_readable(dog.availability) }}</li>
-                <li><strong>Retrieval mode :</strong> {{ dog.pickup_mode }}</li>
-                <li><strong>Location:</strong> {{ dog.address }}</li>
-                <li><strong>Owner info :</strong> {{ owner.name }}, {{ owner.email }}</li>
+                <li><strong>Name: </strong> {{ dog.name }}</li>
+                <li><strong>Breed: </strong> {{ dog.breed }}</li>
+                <li><strong>Availability: </strong>{{ dog.availability }}</li>
+                <li><strong>Retrieval mode: </strong> {{ dog.pickup_mode }}</li>
+                <li><strong>Location: </strong> {{ dog.address }}</li>
+                <li><strong>Owner info: </strong> {{ owner.name }}, {{ owner.email }}</li>
             </ul>
             <!--Google map-->
             <div id="map-container" class="z-depth-1-half map-container mb-5" style="height: 400px"></div>

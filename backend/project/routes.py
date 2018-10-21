@@ -7,7 +7,6 @@ from project import app, google_blueprint, db
 from project.forms import DogForm
 from project.models import User, Dog, Reservation
 from werkzeug.utils import secure_filename
-from project.utils import get_next_time
 
 
 @app.route("/")
@@ -51,7 +50,6 @@ def make_reservation(dog_id: int):
     new_reservation = Reservation(
         user_id=current_user.id,
         dog_id=dog_id,
-        # time=get_next_time(dog.availability) # convert the internal availability string into a real datetime object
     )
     db.session.add(new_reservation)
     db.session.commit()
@@ -82,7 +80,10 @@ def add_dog():
             description=dogform.description.data,
             breed=dogform.breed.data,
             pic=pic_filepath,
-            owner_id=current_user.id
+            owner_id=current_user.id,
+            available_date=dogform.date.data,
+            start_time=dogform.start_time.data,
+            end_time=dogform.end_time.data,
         )
         db.session.add(new_dog)
         db.session.commit()
