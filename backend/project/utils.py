@@ -1,4 +1,5 @@
 from project import app
+from datetime import datetime
 
 @app.context_processor
 def inject_app_context():
@@ -6,7 +7,6 @@ def inject_app_context():
         "debug": app.debug,
         "availability_to_readable" : availability_to_readable
     }
-
 
 def availability_to_readable(availability: str) -> str:
     if availability is None:
@@ -21,3 +21,5 @@ def availability_to_readable(availability: str) -> str:
     # one time
     return availability_tokens[1]
 
+def get_next_time(availability: str) -> datetime:
+    return datetime()

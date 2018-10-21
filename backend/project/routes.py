@@ -7,6 +7,8 @@ from project import app, google_blueprint, db
 from project.forms import DogForm
 from project.models import User, Dog, Reservation
 from werkzeug.utils import secure_filename
+from project.utils import get_next_time
+
 
 @app.route("/")
 @app.route("/index")
@@ -17,11 +19,13 @@ def index():
 
     return render_template("index.html")
 
+
 @login_required
 @app.route("/manage_listings")
 def manage_listings():
     my_dogs = Dog.query.filter_by(owner_id=current_user.id)
     return render_template("manage_listings.html", dogs=my_dogs)
+
 
 @app.route("/user/<user_id>")
 def user(user_id: int):
@@ -32,9 +36,27 @@ def user(user_id: int):
 @login_required
 @app.route("/my_reservations")
 def my_reservations():
-    reservations = Reservation.query.filter_by(user_id=current_user.id).with_entities(Reservation.dog_id)
-    reserved_dogs = Dog.query.filter(Dog.id in reservations)
+    # thanks database experience........
+    reserved_dogs = Dog.query\
+        .join(Reservation, Reservation.user_id == current_user.id)\
+        .group_by(Reservation.dog_id)\
+        .all()
     return render_template("my_reservations.html", dogs=reserved_dogs)
+
+
+@login_required
+@app.route("/make_reservation/<dog_id>")
+def make_reservation(dog_id: int):
+    dog = Dog.query.filter_by(id=dog_id).first()
+    new_reservation = Reservation(
+        user_id=current_user.id,
+        dog_id=dog_id,
+        # time=get_next_time(dog.availability) # convert the internal availability string into a real datetime object
+    )
+    db.session.add(new_reservation)
+    db.session.commit()
+    return redirect(url_for("index"))
+
 
 @login_required
 @app.route("/dog/<dog_id>")
@@ -42,6 +64,7 @@ def dog(dog_id: int):
     the_dog = Dog.query.filter_by(id=dog_id).first()
     the_owner = User.query.filter_by(id=the_dog.owner_id).first()
     return render_template("dog.html", dog=the_dog, owner=the_owner)
+
 
 @login_required
 @app.route("/add_dog", methods=["GET", "POST"])
@@ -60,19 +83,22 @@ def add_dog():
             breed=dogform.breed.data,
             pic=pic_filepath,
             owner_id=current_user.id
-            )
+        )
         db.session.add(new_dog)
         db.session.commit()
         return redirect(url_for("index"))
     return render_template("add_dog.html", dogform=dogform)
 
+
 @app.route("/about")
 def about():
     return "about page"
 
+
 @app.route("/register")
 def register():
     return render_template("register.html")
+
 
 @app.route("/register", methods=["POST"])
 def register_post():
@@ -81,9 +107,11 @@ def register_post():
     db.session.commit()
     return redirect(url_for("index"))
 
+
 @app.route("/go_to_login")
 def go_to_login():
     return redirect(url_for('index'))
+
 
 # !!! USE log_in/google !!!
 @oauth_authorized.connect_via(google_blueprint)
@@ -108,7 +136,8 @@ def log_in(blueprint, token):
         login_user(user)
         return redirect(url_for("index"))
 
+
 @app.route("/log_out", methods=["GET", "POST"])
 def log_out():
-   logout_user()
-   return redirect(url_for("index"))
+    logout_user()
+    return redirect(url_for("index"))

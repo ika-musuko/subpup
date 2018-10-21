@@ -7,7 +7,7 @@
             <img src="{{ url_for('static', filename=dog.pic) }}" class="cover img-rounded"/>
             <!-- Social buttons using anchor elements and btn-primary class to style -->
             <div class="subpupdiv">
-                <button href="#">Subpup me!</button>
+                <a class="btn btn-lg btn-success" href="{{ url_for("make_reservation", dog_id=dog.id) }}">Subpup me!</a>
             </div>
         </div> <!-- End Col 1 -->
 
