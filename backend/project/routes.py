@@ -122,7 +122,7 @@ def add_dog():
 
 @app.route("/about")
 def about():
-    return "about page"
+    return render_template("about.html")
 
 
 @app.route("/register")
