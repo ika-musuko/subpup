@@ -22,6 +22,7 @@ def insert_name():
 def go_to_login():
     return redirect(url_for('index'))
 
+# !!! USE log_in/google !!!
 @oauth_authorized.connect_via(google_blueprint)
 @app.route("/log_in", methods=["GET", "POST"])
 def log_in(blueprint, token):
@@ -45,4 +46,4 @@ def log_in(blueprint, token):
 @app.route("/")
 @app.route("/index")
 def index():
-    return "dog app"
+    return "dog app %s" % (current_user.email if current_user else "...no one logged in")
