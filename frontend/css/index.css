@@ -2,6 +2,12 @@
 .container {
   margin-top: 10%;
 }
+
+hr {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 /* -------- nav bar css ----------*/
 .navbar-brand {
   width: 7%;
@@ -19,6 +25,10 @@
 /* -------- end nav bar css ----------*/
 
 /* -------- browsing dogs css --------- */
+
+a > card {
+  color: black;
+}
 
 .thumbnail {
   position: relative;
