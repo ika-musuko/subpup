@@ -1,6 +1,7 @@
-from project import db
+from flask_login import UserMixin
+from project import db, lm
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, index=True, primary_key=True)
     email = db.Column(db.String(64), index=True, unique=True)
     name = db.Column(db.String(64), index=True, unique=False)
@@ -13,6 +14,10 @@ class User(db.Model):
 
     def __repr__(self):
         return "<User {}>".format(self.name)
+
+@lm.user_loader
+def load_user(id: str):
+    return User.query.get(int(id))
 
 class Dog(db.Model):
     id = db.Column(db.Integer, index=True, primary_key=True)
