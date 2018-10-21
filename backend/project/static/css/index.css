@@ -1,10 +1,11 @@
 
-.container {
+.container, .container-fluid {
   margin-top: 10%;
 }
 
-body {
-    padding-top: 100px;
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 hr {
