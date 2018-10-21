@@ -4,7 +4,7 @@
     <div class="row">
         <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
         <div class="profilepic col-md-4 col-sm-12 col-xs-12">
-            <img src="{{ url_for('static', filename=dog.pic) }}" class="cover img-rounded"/>
+            <img src="{{ url_for('static', filename=dog.pic) or '' }}" class="cover img-rounded"/>
             <!-- Social buttons using anchor elements and btn-primary class to style -->
             <div class="subpupdiv">
                 <a class="btn btn-lg btn-success" href="{{ url_for("make_reservation", dog_id=dog.id) }}">Subpup me!</a>

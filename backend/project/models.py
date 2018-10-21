@@ -35,7 +35,7 @@ class Dog(db.Model):
     pickup_mode = db.Column(db.String(100), index=True, unique=False)
     # address of dog
     address = db.Column(db.String(400), index=True, unique=False)
-    pic = db.Column(db.String(1000), index=True, unique=False)  # as filepath
+    pic = db.Column(db.String(1000), index=True, unique=False, default="imgs/subpup.png")  # as filepath
     owner_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     def __repr__(self):
@@ -46,7 +46,9 @@ class Dog(db.Model):
         return "{} {}-{}".format(date_fmt(self.available_date), time_fmt(self.start_time), time_fmt(self.end_time))
 
 def date_fmt(d) -> str:
-    time_delta = datetime.datetime.now().date() - d
+    if d is None:
+        return "Not Available"
+    time_delta = d - datetime.datetime.now().date()
     if time_delta.days == 0:
         return "Today"
     elif time_delta.days == 1:
@@ -54,6 +56,8 @@ def date_fmt(d) -> str:
     return d.__str__()
 
 def time_fmt(t) -> str:
+    if t is None:
+        return ""
     return t.strftime("%I:%M %p")
 
 class Reservation(db.Model):

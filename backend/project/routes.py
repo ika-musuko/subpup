@@ -70,9 +70,12 @@ def add_dog():
     dogform = DogForm()
     if dogform.validate_on_submit():
         # get the uploaded pic and save it
-        pic_filename = secure_filename(dogform.pic.data.filename)
-        pic_filepath = os.path.join("imgs", "dogs", pic_filename)
-        dogform.pic.data.save(os.path.join(app.root_path, "static", pic_filepath))
+        if dogform.pic.data:
+            pic_filename = secure_filename(dogform.pic.data.filename)
+            pic_filepath = os.path.join("imgs", "dogs", pic_filename)
+            dogform.pic.data.save(os.path.join(app.root_path, "static", pic_filepath))
+        else:
+            pic_filepath = "imgs/subpup.png"
 
         # make a new dog to store to the database
         new_dog = Dog(
