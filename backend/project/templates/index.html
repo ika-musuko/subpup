@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+{% if current_user.is_authenticated %}
+    {% include "index_logged_in.html" %}
+{% else %}
+    {% include "index_not_logged_in.html" %}
+{% endif %}
+{% endblock %}

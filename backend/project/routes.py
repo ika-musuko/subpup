@@ -5,6 +5,12 @@ from flask_dance.contrib.google import google
 from project import app, google_blueprint
 from project.models import *
 
+@app.route("/")
+@app.route("/index")
+def index():
+   # return "dog app %s" % (current_user.email if current_user else "...no one logged in")
+   return render_template("index.html")
+
 @login_required
 @app.route("/list_dog")
 def list_dog():
@@ -13,6 +19,10 @@ def list_dog():
 @app.route("/about")
 def about():
     return "about page"
+
+@app.route("/manage_listings")
+def manage_listings():
+    return "manage listings"
 
 @app.route("/insert_name")
 def insert_name():
@@ -43,7 +53,3 @@ def log_in(blueprint, token):
         login_user(user)
         return redirect(url_for("index"))
 
-@app.route("/")
-@app.route("/index")
-def index():
-    return "dog app %s" % (current_user.email if current_user else "...no one logged in")

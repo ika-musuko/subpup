@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dog App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+      <a class="navbar-brand" href="index.html"><img id="logo" src="imgs/subpup.png" alt="subpup-logo" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Browse<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">List a Dog</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#">Our Mission</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <form class="form-inline">
+            <button class="btn btn-outline-success" href="#">Logout</a>
+          </form>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="text-center">Find Your Next Best Friend</h1>
+      <hr />
+      <div class="row">
+        <ul id="sort-filter-listings" class="list-inline mr-auto">
+          <li class="list-inline-item">
+            <div id="sort-listings" class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sort by:
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Ratings</a>
+                <a class="dropdown-item" href="#">Time</a>
+                <a class="dropdown-item" href="#">Location</a>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item">
+            <div id="filter-listings-time" class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter by time:
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Today</a>
+                <a class="dropdown-item" href="#">Tomorrow</a>
+                <a class="dropdown-item" href="#">This Week</a>
+                <a class="dropdown-item" href="#">More Options...</a>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item">
+            <div id="filter-listings-time" class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter by shelter/nonshelter:
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Only Shelter Dogs</a>
+                <a class="dropdown-item" href="#">Any Dogs</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-1.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">Dubs</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Today</h5>
+              <h5 class="text-center">4:30-6:30 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-2.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">Max</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Today</h5>
+              <h5 class="text-center">2:30-3:30 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-3.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">Callie</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Today</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-4.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Roxy</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Today</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-5.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Argos</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Today</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-6.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Fido</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Today</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-1.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">Dubs</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Tomorrow</h5>
+              <h5 class="text-center">10:30-11:30 am</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-2.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">Max</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Tomorrow</h5>
+              <h5 class="text-center">2:30-3:30 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-3.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">Callie</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Tomorrow</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-4.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Roxy</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Tomorrow</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-5.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Argos</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">Tomorrow</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <div class="thumbnail">
+              <img class="card-img-top" src="imgs/dog-6.jpg" alt="dog profile pic">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Fido</a>
+              </h4>
+              <p class="text-center">Hang with me next:</p>
+              <h5 class="text-center">10/23/18</h5>
+              <h5 class="text-center">5:30-7:00 pm</h5>
+              <!--dog description-->
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
