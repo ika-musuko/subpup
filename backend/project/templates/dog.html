@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
     {% if dog.owner_id != current_user.id %}
-        <div class="header row"><h1 class="text-center red-text">Meet {{ dog.name }}</h1></div>
+        <h1 class="text-center">Meet {{ dog.name }}</h1>
+        <hr />
     {% endif %}
     <div class="row">
         <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
@@ -18,7 +19,6 @@
                 </div>
             {% endif %}
         </div> <!-- End Col 1 -->
-
         <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
 
         <!-- "Lead" text at top of column. -->
@@ -40,7 +40,6 @@
 
 
     </div> <!-- End row 1 -->
-
     <style>
         .nav {
             margin-bottom: 10%;
