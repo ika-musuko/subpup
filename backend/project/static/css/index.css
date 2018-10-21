@@ -3,6 +3,10 @@
   margin-top: 10%;
 }
 
+body {
+    padding-top: 100px;
+}
+
 hr {
   margin-top: 25px;
   margin-bottom: 25px;

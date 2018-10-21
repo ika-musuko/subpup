@@ -1,4 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+  <div class="container">
+    <h1 class="text-center">Edit Your Dog</h1>
+    <hr />
     {{ wtf.quick_form(dogform) }}
+  </div>
 {% endblock %}
