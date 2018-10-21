@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-      <div class="header row"><h1 class="text-center red-text">Meet Jenny</h1></div>
+      <div class="header row"><h1 class="text-center red-text">Meet {{ dog.name }}</h1></div>
       <div class="row">
                 <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
       <div class="profilepic col-md-4 col-sm-12 col-xs-12">
 
-              <!-- Placeholder image using Placeholder.com -->
-              <img src="https://i.pinimg.com/originals/51/67/b6/5167b6f7d4edd024a02793a81a9071be.jpg" class="cover img-rounded"/>
+              <img src="{{ url_for('static', filename=dog.pic) }}" class="cover img-rounded"/>
               <!-- Social buttons using anchor elements and btn-primary class to style -->
               <div class="subpupdiv"><button href="#">Subpup me!</button></div>
           </div> <!-- End Col 1 -->

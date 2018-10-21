@@ -38,8 +38,8 @@ def my_reservations():
 @login_required
 @app.route("/dog/<dog_id>")
 def dog(dog_id: int):
-    the_dog = Dog.query.filter_by(dog_id=dog_id).first()
-    the_owner = User.query.filter_by(user_id=the_dog.owner_id).first()
+    the_dog = Dog.query.filter_by(id=dog_id).first()
+    the_owner = User.query.filter_by(id=the_dog.owner_id).first()
     return render_template("dog.html", dog=the_dog, owner=the_owner)
 
 @login_required
@@ -49,8 +49,8 @@ def add_dog():
     if dogform.validate_on_submit():
         # get the uploaded pic and save it
         pic_filename = secure_filename(dogform.pic.data.filename)
-        pic_filepath = os.path.join("static","imgs", "dogs", pic_filename)
-        dogform.pic.data.save(os.path.join(app.root_path, pic_filepath))
+        pic_filepath = os.path.join("imgs", "dogs", pic_filename)
+        dogform.pic.data.save(os.path.join(app.root_path, "static", pic_filepath))
 
         # make a new dog to store to the database
         new_dog = Dog(

@@ -2,7 +2,7 @@
   <a class="card-link" href="{{ url_for("dog", dog_id=dog.id) }}">
       <div class="card h-100">
           <div class="thumbnail">
-              <img class="card-img-top" src="{{ dog.pic }}" alt="dog profile pic">
+              <img class="card-img-top" src="{{ url_for("static", filename=dog.pic) }}" alt="dog profile pic">
           </div>
           <div class="card-body">
               <h4 class="card-title text-center text-primary">
