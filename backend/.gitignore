@@ -1,0 +1,7 @@
+vdog/
+__pycache__/
+*.swo
+*.swp
+*.pyc
+dogapp.db
+migrations/
