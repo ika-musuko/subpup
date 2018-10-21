@@ -7,6 +7,8 @@ class User(db.Model):
     description = db.Column(db.String(1000), index=True, unique=False)
     current_dog_id = db.Column(db.Integer, index=True, nullable=True)
     profile_pic = db.Column(db.String(1000), index=True, unique=False) # as filepath
+    user_rating = db.Column(db.Float, index=True, unique=False)
+    owner_rating = db.Column(db.Float, index=True, unique=False)
     dogs = db.relationship("Dog", backref="owner", lazy="dynamic")
 
     def __repr__(self):
