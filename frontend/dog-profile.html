@@ -53,6 +53,7 @@
               <!-- Placeholder image using Placeholder.com -->
               <img src="https://i.pinimg.com/originals/51/67/b6/5167b6f7d4edd024a02793a81a9071be.jpg" class="cover img-rounded"/>
               <!-- Social buttons using anchor elements and btn-primary class to style -->
+              <div class="subpupdiv"><button href="#">Subpup me!</button></div>
           </div> <!-- End Col 1 -->
 
       <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
@@ -73,7 +74,7 @@
         <!-- Horizontal rule to add some spacing between the "lead" and body text -->
         <hr />
       </div> <!-- End column 2 -->
-          <div class="row moredogs"><h2>More dogs to explore</h2></div>
+     
 
     </div> <!-- End row 1 -->
       
@@ -111,8 +112,11 @@
     }
     
     .profilepic {
+        display: block;
         float: left;
         padding-left: 50px;
+        align-items: center;
+        
 
     }
     
@@ -125,7 +129,27 @@
         font-size: 80px;
     }
 
+    button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        background-color: white;
+        color: blue;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition-duration: 0.2s;
+        
+
+    }
     
+    button:hover {
+        background-color: blue;
+        color: white;
+
+    }
+    
+
 
 </style>
 
@@ -166,15 +190,6 @@
   // Initialize maps
   google.maps.event.addDomListener(window, 'load', regular_map);
 </script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
