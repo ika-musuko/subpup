@@ -27,6 +27,13 @@ def user(user_id: int):
     the_user = User.query.filter_by(user_id=user_id).first()
     return render_template("user.html", user=the_user)
 
+
+@login_required
+@app.route("/my_reservations")
+def my_reservations():
+    reservations = Reservation.query.filter_by(user_id=current_user.id)
+    return render_template("my_reservations.html", reservations=reservations)
+
 @login_required
 @app.route("/dog/<dog_id>")
 def dog(dog_id: int):

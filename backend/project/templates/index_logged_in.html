@@ -43,24 +43,7 @@
       </div>
       <div class="row">
       {% for dog in dogs %}
-          <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-              <a class="card-link" href="dog_profile.html">
-                  <div class="card h-100">
-                      <div class="thumbnail">
-                          <img class="card-img-top" src="{{ dog.pic }}" alt="dog profile pic">
-                      </div>
-                      <div class="card-body">
-                          <h4 class="card-title text-center text-primary">
-                            {{ dog.name }}
-                          </h4>
-                          <p class="text-center">Hang with me next:</p>
-                          <h5 class="text-center">{{ availability_to_readable(dog.availability) }}</h5>
-                          <!--dog description-->
-                          <p class="card-text">
-                            {{ dog.description }}
-                          </p>
-                      </div>
-                  </div>
-              </a>
-          </div>
+         {% with dog=dog %}
+         {% include "dog_card.html" %}
+         {% endwith %}
       {% endfor %}
