@@ -1,7 +1,22 @@
 
 .container {
-  margin-top: 5%;
+  margin-top: 10%;
 }
+/* -------- nav bar css ----------*/
+.navbar-brand {
+  width: 7%;
+}
+
+.nav-item {
+  font-size: 1.5rem;
+  margin-right: 30px;
+}
+
+#logo {
+  width: 100%;
+}
+
+/* -------- end nav bar css ----------*/
 
 /* -------- browsing dogs css --------- */
 
