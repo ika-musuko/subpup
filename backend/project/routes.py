@@ -8,25 +8,21 @@ from project.models import *
 @app.route("/")
 @app.route("/index")
 def index():
-   # return "dog app %s" % (current_user.email if current_user else "...no one logged in")
-   return render_template("index.html")
+    # return "dog app %s" % (current_user.email if current_user else  "...no one logged in")
+    return render_template("index.html")
 
 @login_required
-@app.route("/list_dog")
-def list_dog():
-    return "list a new dog"
+@app.route("/manage_listings")
+def manage_listings():
+    return render_template("manage_listings.html")
 
 @app.route("/about")
 def about():
     return "about page"
 
-@app.route("/manage_listings")
-def manage_listings():
-    return "manage listings"
-
-@app.route("/insert_name")
+@app.route("/register")
 def insert_name():
-    return "insert name for new users"
+    return render_template("register.html")
 
 @app.route("/go_to_login")
 def go_to_login():
