@@ -1,4 +1,4 @@
-from flask import url_for, redirect, render_template
+from flask import url_for, redirect, render_template, request
 from flask_dance.consumer import oauth_authorized
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_dance.contrib.google import google
@@ -21,8 +21,15 @@ def about():
     return "about page"
 
 @app.route("/register")
-def insert_name():
+def register():
     return render_template("register.html")
+
+@app.route("/register", methods=["POST"])
+def register_post():
+    name = request.form["name-input"]
+    current_user.name = name
+    db.session.commit()
+    return redirect(url_for("index"))
 
 @app.route("/go_to_login")
 def go_to_login():
@@ -45,6 +52,8 @@ def log_in(blueprint, token):
             user = User(email=email)
             db.session.add(user)
             db.session.commit()
+            login_user(user)
+            return redirect(url_for("register"))
 
         login_user(user)
         return redirect(url_for("index"))
