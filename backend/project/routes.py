@@ -13,7 +13,7 @@ from werkzeug.utils import secure_filename
 @app.route("/index")
 def index():
     if current_user.is_authenticated:
-        dogs = Dog.query.filter(Dog.owner_id != current_user.id).all() # only show dogs not owned by the user
+        dogs = Dog.query.filter(Dog.owner_id != current_user.id).order_by(Dog.available_date).all() # only show dogs not owned by the user
         return render_template("index.html", dogs=dogs)
 
     return render_template("index.html")
