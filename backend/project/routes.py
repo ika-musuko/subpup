@@ -1,6 +1,6 @@
 from flask import url_for, redirect, render_template
 from flask_dance.consumer import oauth_authorized
-from flask_login import current_user, login_user, login_required
+from flask_login import current_user, login_user, login_required, logout_user
 from flask_dance.contrib.google import google
 from project import app, google_blueprint
 from project.models import *
@@ -53,3 +53,7 @@ def log_in(blueprint, token):
         login_user(user)
         return redirect(url_for("index"))
 
+@app.route("/log_out", methods=["GET", "POST"])
+def log_out():
+   logout_user()
+   return redirect(url_for("index"))

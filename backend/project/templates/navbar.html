@@ -21,11 +21,11 @@
                     <div>Woof woof, {{ current_user.name }}</div>
                 </li>
                 <li>
-                    <a class="btn btn-outline-success" href="#">Logout</a>
+                    <a class="btn btn-outline-danger" href="{{ url_for("log_out") }}">Logout</a>
                 </li>
                 {% else %}
                 <li>
-                    <a class="btn btn-outline-danger" href="#">Login</a>
+                    <a class="btn btn-outline-success" href="/log_in/google">Login</a>
                 </li>
                 {% endif %}
         </ul>
