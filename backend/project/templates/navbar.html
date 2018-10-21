@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             {% if current_user.is_authenticated %}
-                <li class="nav-item active">
+                <li class="nav-item {{ 'active' if active_page == 'index' else '' }}">
                     <a class="nav-link" href="{{ url_for("index") }}">Browse<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown {{ 'active' if active_page == 'reservations' else '' }}">
                     <a class="nav-link" href="{{ url_for("my_reservations") }}">My Reservations</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ 'active' if active_page == 'manage' else '' }}">
                     <a class="nav-link" href="{{ url_for("manage_listings") }}">Manage Dog Listings</a>
                 </li>
             {% endif %}
