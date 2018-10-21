@@ -22,7 +22,7 @@ the user interface. A couple of us started designing the pages with HTML/CSS whi
 the rest of us set up the backend and database with Python/Flask and SQLite.
 
 # On Start-Up
-1. Go to subpup.com.
+1. Go to link.
 2. Click login on the top right.
 3. Login with your Google account.
 4. Start making a reservation or listing a dog.
