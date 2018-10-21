@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="text-center">My Reservations</h1>
+    <hr/>
+    <div class="row">
+        {% for dog in dogs %}
+            {% with dog=dog %}
+                {% include "dog_card.html" %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endblock %}
