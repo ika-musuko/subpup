@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="" method="POST" novalidate>
+<div style="padding: 0 100px; margin-top: 150px">{{ wtf.quick_form(dogform) }}</div>
+{#<form action="" method="POST" novalidate>
 {{ dogform.hidden_tag() }}
     <p>
         {{ dogform.pic.label }}<br>
@@ -18,5 +19,5 @@
         {{ dogform.availability_type.label }}<br>
         {{ dogform.availability_type() }}
     </p>
-</form>
+</form>#}
 {% endblock %}

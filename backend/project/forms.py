@@ -11,8 +11,8 @@ class MultiCheckboxField(SelectMultipleField):
 class DogForm(FlaskForm):
     pic = FileField("Dog Picture")
     name = StringField("Dog Name", validators=[DataRequired()])
-    breed = StringField("Dog Name", validators=[DataRequired()])
-    availability_type = SelectField("Availability Type", choices=["One Time", "Recurring"], validators=[DataRequired()])
+    breed = StringField("Dog Breed", validators=[DataRequired()])
+    availability_type = SelectField("Availability Type", choices=[("O", "One Time"), ("R", "Recurring")], validators=[DataRequired()])
 
 class OneTimeAvailabilityForm(FlaskForm):
     date_time = DateTimeLocalField("Date and Time",  format='%Y-%m-%dT%H:%M')
