@@ -1,3 +1,13 @@
+from project import app
+
+@app.context_processor
+def inject_app_context():
+    return {
+        "debug": app.debug,
+        "availability_to_readable" : availability_to_readable
+    }
+
+
 def availability_to_readable(availability: str) -> str:
     availability_tokens = availability.split("~")
     # recurring

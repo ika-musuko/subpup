@@ -3,6 +3,7 @@ from flask_dance.consumer import oauth_authorized
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_dance.contrib.google import google
 from project import app, google_blueprint
+from project.forms import DogForm
 from project.models import *
 
 @app.route("/")
@@ -15,6 +16,24 @@ def index():
 @app.route("/manage_listings")
 def manage_listings():
     return render_template("manage_listings.html")
+
+@app.route("/user/<user_id>")
+def user(user_id: int):
+    the_user = User.query.filter_by(user_id=user_id).first()
+    return render_template("user.html", user=the_user)
+
+@login_required
+@app.route("/dog/<dog_id>")
+def dog(dog_id: int):
+    the_dog = Dog.query.filter_by(dog_id=dog_id).first()
+    the_owner = User.query.filter_by(user_id=the_dog.owner_id).first()
+    return render_template("dog.html", dog=the_dog, owner=the_owner)
+
+@login_required
+@app.route("/add_dog")
+def add_dog():
+    dogform = DogForm()
+    return render_template("add_dog.html", dogform=dogform)
 
 @app.route("/about")
 def about():

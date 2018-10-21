@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="POST" novalidate>
+{{ dogform.hidden_tag() }}
+    <p>
+        {{ dogform.pic.label }}<br>
+        {{ dogform.pic() }}
+    </p>
+    <p>
+        {{ dogform.name.label }}<br>
+        {{ dogform.name() }}
+    </p>
+    <p>
+        {{ dogform.breed.label }}<br>
+        {{ dogform.breed() }}
+    </p>
+    <p>
+        {{ dogform.availability_type.label }}<br>
+        {{ dogform.availability_type() }}
+    </p>
+</form>
+{% endblock %}
