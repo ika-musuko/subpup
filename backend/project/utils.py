@@ -9,6 +9,8 @@ def inject_app_context():
 
 
 def availability_to_readable(availability: str) -> str:
+    if availability is None:
+        return "NULL"
     availability_tokens = availability.split("~")
     # recurring
     if availability_tokens[0] == "R":

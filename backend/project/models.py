@@ -23,6 +23,7 @@ class Dog(db.Model):
     id = db.Column(db.Integer, index=True, primary_key=True)
     name = db.Column(db.String(64), index=True, unique=False)
     breed = db.Column(db.String(100), index=True, unique=False)
+    description = db.Column(db.String(1000), index=True, unique=False)
     # availability is a formatted string like the following
     # R~MT~4:30 pm
     # O~2018~10~20~4:30 pm

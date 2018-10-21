@@ -2,14 +2,17 @@ from flask import url_for, redirect, render_template, request
 from flask_dance.consumer import oauth_authorized
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_dance.contrib.google import google
-from project import app, google_blueprint
+from project import app, google_blueprint, db
 from project.forms import DogForm
-from project.models import *
+from project.models import User, Dog, Reservation
 
 @app.route("/")
 @app.route("/index")
 def index():
-    # return "dog app %s" % (current_user.email if current_user else  "...no one logged in")
+    if current_user.is_authenticated:
+        dogs = Dog.query.all()
+        return render_template("index.html", dogs=dogs)
+
     return render_template("index.html")
 
 @login_required
@@ -30,9 +33,18 @@ def dog(dog_id: int):
     return render_template("dog.html", dog=the_dog, owner=the_owner)
 
 @login_required
-@app.route("/add_dog")
+@app.route("/add_dog", methods=["GET", "POST"])
 def add_dog():
     dogform = DogForm()
+    if dogform.validate_on_submit():
+        new_dog = Dog(
+            name=dogform.name.data,
+            description=dogform.description.data,
+            breed=dogform.breed.data
+            )
+        db.session.add(new_dog)
+        db.session.commit()
+        return redirect(url_for("index"))
     return render_template("add_dog.html", dogform=dogform)
 
 @app.route("/about")

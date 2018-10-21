@@ -32,4 +32,4 @@ google_blueprint = make_google_blueprint(
 app.register_blueprint(google_blueprint, url_prefix='/log_in')
 
 Bootstrap(app)
-from project import routes, models
+from project import routes, models, forms, utils

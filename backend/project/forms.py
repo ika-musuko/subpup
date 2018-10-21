@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
-from wtforms import StringField, SelectField, SelectMultipleField, widgets
+from wtforms import widgets, StringField, SelectField, SelectMultipleField, TextAreaField, SubmitField
 from wtforms.fields.html5 import DateTimeLocalField, TimeField
 from wtforms.validators import DataRequired
 
@@ -12,7 +12,9 @@ class DogForm(FlaskForm):
     pic = FileField("Dog Picture")
     name = StringField("Dog Name", validators=[DataRequired()])
     breed = StringField("Dog Breed", validators=[DataRequired()])
+    description = TextAreaField("About the Dog")
     availability_type = SelectField("Availability Type", choices=[("O", "One Time"), ("R", "Recurring")], validators=[DataRequired()])
+    submit = SubmitField()
 
 class OneTimeAvailabilityForm(FlaskForm):
     date_time = DateTimeLocalField("Date and Time",  format='%Y-%m-%dT%H:%M')
