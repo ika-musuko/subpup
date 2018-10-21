@@ -4,63 +4,11 @@
       <h1 class="text-center">My Listings</h1>
       <hr />
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <div class="thumbnail">
-              <img class="card-img-top" src="static/imgs/dog-1.jpg" alt="dog profile pic">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">
-                <a href="#">Dubs</a>
-              </h4>
-              <h5 class="text-center">Today</h5>
-              <h5 class="text-center">4:30-6:30 pm</h5>
-              <!--dog description-->
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-              </p>
-              <a href="#" class="btn btn-primary">Edit Me</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <div class="thumbnail">
-              <img class="card-img-top" src="static/imgs/dog-2.jpg" alt="dog profile pic">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">
-                <a href="#">Max</a>
-              </h4>
-              <h5 class="text-center">Today</h5>
-              <h5 class="text-center">2:30-3:30 pm</h5>
-              <!--dog description-->
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-              </p>
-              <a href="#" class="btn btn-primary">Edit Me</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <div class="thumbnail">
-              <img class="card-img-top" src="static/imgs/dog-3.jpg" alt="dog profile pic">
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center">
-                <a href="#">Callie</a>
-              </h4>
-              <h5 class="text-center">Today</h5>
-              <h5 class="text-center">5:30-7:00 pm</h5>
-              <!--dog description-->
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-              </p>
-              <a href="#" class="btn btn-primary">Edit Me</a>
-            </div>
-          </div>
-        </div>
+      {% for dog in dogs %}
+          {% with dog=dog %}
+              {% include "dog_card.html" %}
+          {% endwith %}
+      {% endfor %}
         <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
           <a href="{{ url_for("add_dog") }}">
             <div class="card h-100">

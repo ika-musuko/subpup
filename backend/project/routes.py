@@ -20,7 +20,8 @@ def index():
 @login_required
 @app.route("/manage_listings")
 def manage_listings():
-    return render_template("manage_listings.html")
+    my_dogs = Dog.query.filter_by(owner_id=current_user.id)
+    return render_template("manage_listings.html", dogs=my_dogs)
 
 @app.route("/user/<user_id>")
 def user(user_id: int):
@@ -56,7 +57,8 @@ def add_dog():
             name=dogform.name.data,
             description=dogform.description.data,
             breed=dogform.breed.data,
-            pic=pic_filepath
+            pic=pic_filepath,
+            owner_id=current_user.id
             )
         db.session.add(new_dog)
         db.session.commit()
