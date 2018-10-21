@@ -32,4 +32,8 @@
 .portfolio-item {
   margin-bottom: 30px;
 }
+
+#sort-filter-listings {
+  float: right;
+}
 /* ------------------------------ */
