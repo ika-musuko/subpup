@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-      <div class="header row"><h1 class="text-center red-text">Meet {{ dog.name }}</h1></div>
-      <div class="row">
-                <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
-      <div class="profilepic col-md-4 col-sm-12 col-xs-12">
+    <div class="header row"><h1 class="text-center red-text">Meet {{ dog.name }}</h1></div>
+    <div class="row">
+        <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
+        <div class="profilepic col-md-4 col-sm-12 col-xs-12">
+            <img src="{{ url_for('static', filename=dog.pic) }}" class="cover img-rounded"/>
+            <!-- Social buttons using anchor elements and btn-primary class to style -->
+            <div class="subpupdiv">
+                <button href="#">Subpup me!</button>
+            </div>
+        </div> <!-- End Col 1 -->
 
-              <img src="{{ url_for('static', filename=dog.pic) }}" class="cover img-rounded"/>
-              <!-- Social buttons using anchor elements and btn-primary class to style -->
-              <div class="subpupdiv"><button href="#">Subpup me!</button></div>
-          </div> <!-- End Col 1 -->
-
-      <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
+        <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
 
         <!-- "Lead" text at top of column. -->
         <div class="lead col-md-8 col-sm-* col-xs-*">
@@ -22,113 +23,111 @@
                 <li><strong>Location:</strong> {{ dog.address }}</li>
                 <li><strong>Owner info :</strong> {{ owner.name }}, {{ owner.email }}</li>
             </ul>
-                <!--Google map-->
-                <div id="map-container" class="z-depth-1-half map-container mb-5" style="height: 400px"></div>
+            <!--Google map-->
+            <div id="map-container" class="z-depth-1-half map-container mb-5" style="height: 400px"></div>
 
-        <!-- Horizontal rule to add some spacing between the "lead" and body text -->
-        <hr />
-      </div> <!-- End column 2 -->
+            <!-- Horizontal rule to add some spacing between the "lead" and body text -->
+            <hr/>
+        </div> <!-- End column 2 -->
 
 
     </div> <!-- End row 1 -->
 
-<style>
-    .nav {
-        margin-bottom: 10%;
-    }
+    <style>
+        .nav {
+            margin-bottom: 10%;
+        }
 
-    ul {
-        line-height: 50px;
-    }
-    .profile {
-        margin-left: 20%;
-    }
+        ul {
+            line-height: 50px;
+        }
 
-    .cover {
-        width: 400px;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 100%;
-        margin-right: 5%;
-    }
+        .profile {
+            margin-left: 20%;
+        }
 
-    .profilepic {
-        display: block;
-        float: left;
-        padding-left: 50px;
-        align-items: center;
+        .cover {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 100%;
+            margin-right: 5%;
+        }
 
+        .profilepic {
+            display: block;
+            float: left;
+            padding-left: 50px;
+            align-items: center;
 
-    }
+        }
 
-    .header {
-        display: block;
-        padding-bottom: 40px;
-    }
+        .header {
+            display: block;
+            padding-bottom: 40px;
+        }
 
-    h1 {
-        font-size: 80px;
-    }
+        h1 {
+            font-size: 80px;
+        }
 
-    button {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 20px;
-        background-color: white;
-        color: blue;
-        border-radius: 10px;
-        margin-top: 20px;
-        transition-duration: 0.2s;
+        button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background-color: white;
+            color: blue;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition-duration: 0.2s;
 
+        }
 
-    }
+        button:hover {
+            background-color: blue;
+            color: white;
 
-    button:hover {
-        background-color: blue;
-        color: white;
-
-    }
-
+        }
 
 
-</style>
+    </style>
 
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 
-<!--Google Maps-->
-<script src="https://maps.google.com/maps/api/js"></script>
+    <!--Google Maps-->
+    <script src="https://maps.google.com/maps/api/js"></script>
 
-<!-- Google Maps settings -->
-<script>
-  // Regular map
-  function regular_map() {
-    var var_location = new google.maps.LatLng(40.725118, -73.997699);
+    <!-- Google Maps settings -->
+    <script>
+        // Regular map
+        function regular_map() {
+            var var_location = new google.maps.LatLng(40.725118, -73.997699);
 
-    var var_mapoptions = {
-      center: var_location,
-      zoom: 14
-    };
+            var var_mapoptions = {
+                center: var_location,
+                zoom: 14
+            };
 
-    var var_map = new google.maps.Map(document.getElementById("map-container"),
-      var_mapoptions);
+            var var_map = new google.maps.Map(document.getElementById("map-container"),
+                var_mapoptions);
 
-    var var_marker = new google.maps.Marker({
-      position: var_location,
-      map: var_map,
-      title: "New York"
-    });
-  }
+            var var_marker = new google.maps.Marker({
+                position: var_location,
+                map: var_map,
+                title: "New York"
+            });
+        }
 
-  // Initialize maps
-  google.maps.event.addDomListener(window, 'load', regular_map);
-</script>
+        // Initialize maps
+        google.maps.event.addDomListener(window, 'load', regular_map);
+    </script>
 {% endblock %}
