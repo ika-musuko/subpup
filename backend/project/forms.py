@@ -14,7 +14,7 @@ class DogForm(FlaskForm):
     breed = StringField("Dog Breed", validators=[DataRequired()])
     address = StringField("Location")
     description = TextAreaField("About the Dog")
-    date = DateField("Date Available")
+    available_date = DateField("Date Available")
     start_time = TimeField("Start Time")
     end_time = TimeField("End Time")
     submit = SubmitField()

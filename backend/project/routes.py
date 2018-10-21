@@ -68,11 +68,10 @@ def dog(dog_id: int):
 @app.route("/edit_dog/<dog_id>", methods=["GET", "POST"])
 def edit_dog(dog_id: int):
     dog = Dog.query.filter_by(id=dog_id).first()
-    dogform = DogForm(obj=dog)
+    dogform = DogForm(request.form, obj=dog)
     if dogform.validate_on_submit():
-        dog = Dog.query.filter_by(dog_id=dog_id).first()
         # get the uploaded pic and save it
-        if dogform.pic.data:
+        if dogform.pic.data != dog.pic:
             pic_filename = secure_filename(dogform.pic.data.filename)
             pic_filepath = os.path.join("imgs", "dogs", pic_filename)
             dogform.pic.data.save(os.path.join(app.root_path, "static", pic_filepath))
@@ -82,7 +81,7 @@ def edit_dog(dog_id: int):
         dog.description=dogform.description.data
         dog.breed=dogform.breed.data
         dog.address=dogform.address.data
-        dog.available_date=dogform.date.data
+        dog.available_date=dogform.available_date.data
         dog.start_time=dogform.start_time.data
         dog.end_time=dogform.end_time.data
         db.session.commit()
@@ -110,7 +109,7 @@ def add_dog():
             address=dogform.address.data,
             pic=pic_filepath,
             owner_id=current_user.id,
-            available_date=dogform.date.data,
+            available_date=dogform.available_date.data,
             start_time=dogform.start_time.data,
             end_time=dogform.end_time.data,
         )
