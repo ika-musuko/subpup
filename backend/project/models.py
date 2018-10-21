@@ -24,9 +24,11 @@ class Dog(db.Model):
     name = db.Column(db.String(64), index=True, unique=False)
     breed = db.Column(db.String(100), index=True, unique=False)
     # availability is a formatted string like the following
+    # R~MT~4:30 pm
+    # O~2018~10~20~4:30 pm
     # R or O - Recurring or One Time
     # if Recurring
-    #    day of week as MTWRFSU (U = sunday)
+    #    list days of week
     #    time as 24hr military time (1630)
     # if One Time
     #    datetime as string
