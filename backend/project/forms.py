@@ -12,6 +12,7 @@ class DogForm(FlaskForm):
     pic = FileField("Dog Picture")
     name = StringField("Dog Name", validators=[DataRequired()])
     breed = StringField("Dog Breed", validators=[DataRequired()])
+    address = StringField("Location")
     description = TextAreaField("About the Dog")
     date = DateField("Date Available")
     start_time = TimeField("Start Time")

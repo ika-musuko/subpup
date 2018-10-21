@@ -13,7 +13,7 @@ from werkzeug.utils import secure_filename
 @app.route("/index")
 def index():
     if current_user.is_authenticated:
-        dogs = Dog.query.all()
+        dogs = Dog.query.filter(Dog.owner_id != current_user.id).all() # only show dogs not owned by the user
         return render_template("index.html", dogs=dogs)
 
     return render_template("index.html")
@@ -65,6 +65,31 @@ def dog(dog_id: int):
 
 
 @login_required
+@app.route("/edit_dog/<dog_id>", methods=["GET", "POST"])
+def edit_dog(dog_id: int):
+    dog = Dog.query.filter_by(id=dog_id).first()
+    dogform = DogForm(obj=dog)
+    if dogform.validate_on_submit():
+        dog = Dog.query.filter_by(dog_id=dog_id).first()
+        # get the uploaded pic and save it
+        if dogform.pic.data:
+            pic_filename = secure_filename(dogform.pic.data.filename)
+            pic_filepath = os.path.join("imgs", "dogs", pic_filename)
+            dogform.pic.data.save(os.path.join(app.root_path, "static", pic_filepath))
+            dog.pic=pic_filepath
+
+        dog.name=dogform.name.data
+        dog.description=dogform.description.data
+        dog.breed=dogform.breed.data
+        dog.address=dogform.address.data
+        dog.available_date=dogform.date.data
+        dog.start_time=dogform.start_time.data
+        dog.end_time=dogform.end_time.data
+        db.session.commit()
+        return redirect(url_for("index"))
+    return render_template("edit_dog.html", dogform=dogform)
+
+@login_required
 @app.route("/add_dog", methods=["GET", "POST"])
 def add_dog():
     dogform = DogForm()
@@ -82,6 +107,7 @@ def add_dog():
             name=dogform.name.data,
             description=dogform.description.data,
             breed=dogform.breed.data,
+            address=dogform.address.data,
             pic=pic_filepath,
             owner_id=current_user.id,
             available_date=dogform.date.data,

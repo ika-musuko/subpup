@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="header row"><h1 class="text-center red-text">Meet {{ dog.name }}</h1></div>
+    {% if dog.owner_id != current_user.id %}
+        <div class="header row"><h1 class="text-center red-text">Meet {{ dog.name }}</h1></div>
+    {% endif %}
     <div class="row">
         <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
         <div class="profilepic col-md-4 col-sm-12 col-xs-12">
-            <img src="{{ url_for('static', filename=dog.pic) or '' }}" class="cover img-rounded"/>
+            <img src="{{ url_for('static', filename=dog.pic) }}" class="cover img-rounded"/
             <!-- Social buttons using anchor elements and btn-primary class to style -->
-            <div class="subpupdiv">
-                <a class="btn btn-lg btn-success" href="{{ url_for("make_reservation", dog_id=dog.id) }}">Subpup me!</a>
-            </div>
+            {% if dog.owner_id == current_user.id %}
+                <div class="">
+                    <a class="btn btn-lg btn-warning" href="{{ url_for("edit_dog", dog_id=dog.id) }}">Edit Dog</a>
+                </div>
+            {% else %}
+                <div class="subpupdiv">
+                    <a class="btn btn-lg btn-success" href="{{ url_for("make_reservation", dog_id=dog.id) }}">Subpup me!</a>
+                </div>
+            {% endif %}
         </div> <!-- End Col 1 -->
 
         <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
