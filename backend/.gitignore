@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 dogapp.db
 migrations/
+project/static/imgs/dogs/
+project/static/imgs/users/

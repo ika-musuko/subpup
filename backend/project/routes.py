@@ -1,3 +1,4 @@
+import os
 from flask import url_for, redirect, render_template, request
 from flask_dance.consumer import oauth_authorized
 from flask_login import current_user, login_user, login_required, logout_user
@@ -5,6 +6,7 @@ from flask_dance.contrib.google import google
 from project import app, google_blueprint, db
 from project.forms import DogForm
 from project.models import User, Dog, Reservation
+from werkzeug.utils import secure_filename
 
 @app.route("/")
 @app.route("/index")
@@ -37,10 +39,17 @@ def dog(dog_id: int):
 def add_dog():
     dogform = DogForm()
     if dogform.validate_on_submit():
+        # get the uploaded pic and save it
+        pic_filename = secure_filename(dogform.pic.data.filename)
+        pic_filepath = os.path.join("static","imgs", "dogs", pic_filename)
+        dogform.pic.data.save(os.path.join(app.root_path, pic_filepath))
+
+        # make a new dog to store to the database
         new_dog = Dog(
             name=dogform.name.data,
             description=dogform.description.data,
-            breed=dogform.breed.data
+            breed=dogform.breed.data,
+            pic=pic_filepath
             )
         db.session.add(new_dog)
         db.session.commit()
