@@ -40,6 +40,36 @@
 
 
     </div> <!-- End row 1 -->
+
+        <div class="header row"><h2 class="text-center red-text">Meet the owner</h2></div>
+            <div class="row">
+                <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
+      <div class="profilepic col-md-4 col-sm-12 col-xs-12">
+              <!-- Placeholder image using Placeholder.com -->
+              <img src="https://barkforce.com/wp-content/uploads/2018/02/How-to-train-your-dog-for-new-owners.png" class="cover img-rounded"/>
+          </div> <!-- End Col 1 -->
+
+      <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
+
+        <!-- "Lead" text at top of column. -->
+        <div class="lead col-md-8 col-sm-* col-xs-*">
+            <ul> 
+                <li><strong>Name :</strong> Jenny Johnson Sr.</li>
+                <li><strong>Location :</strong> Seattle, WA</li>
+                <li><strong>Bio :</strong> "I've been Jenny's mom for 5 years and she is super enjoyable to be around. She loves playing with stuffed animals and eating snacks.</li>
+                <li><strong>Contact me: </strong></li>
+            </ul>
+            <div class="form-group">
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                <div><button href="#" class="sendmsg">Woof!</button></div>
+                </div>
+
+      </div> <!-- End column 2 -->
+
+      </div>
+        
+            
     <style>
         .nav {
             margin-bottom: 10%;
@@ -77,25 +107,35 @@
         h1 {
             font-size: 80px;
         }
+    .subpup {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        background-color: white;
+        color: blue;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition-duration: 0.2s;
+        
+    }
+    
+    .subpup:hover,
+    .sendmsg:hover {
+        background-color: blue;
+        color: white;
 
-        button {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px;
-            background-color: white;
-            color: blue;
-            border-radius: 10px;
-            margin-top: 20px;
-            transition-duration: 0.2s;
-
-        }
-
-        button:hover {
-            background-color: blue;
-            color: white;
-
-        }
+    }
+    
+    .sendmsg {
+        padding: 20px;
+        background-color: white;
+        color: blue;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition-duration: 0.2s;
+    }
+    
 
 
     </style>
