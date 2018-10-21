@@ -37,6 +37,7 @@ class Dog(db.Model):
         return "<Dog {}>".format(self.name)
 
 class Reservation(db.Model):
+    id = db.Column(db.Integer, index=True, primary_key=True)
     user_id = db.Column(db.Integer, index=True, unique=False)
     dog_id = db.Column(db.Integer, index=True, unique=False)
     time = db.Column(db.DateTime, index=True, unique=False)
